@@ -4,6 +4,7 @@ export interface ImplantBrand {
   country: string;
   tag: string;
   pricePerUnit: number;
+  logo?: string;
 }
 
 export interface CrownType {

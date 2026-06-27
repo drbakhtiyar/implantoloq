@@ -39,14 +39,23 @@ export default function BrandCard({ brand, selected, onClick, sym, perImplantLab
       )}
 
       <div className="flex items-center justify-center w-12 h-12 mb-3 mx-auto">
-        <div
-          className={[
-            "w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold",
-            selected ? "bg-white/20 text-white" : "bg-[#0F4C81]/10 text-[#0F4C81]",
-          ].join(" ")}
-        >
-          {brand.name.charAt(0)}
-        </div>
+        {brand.logo ? (
+          <img
+            src={brand.logo}
+            alt={brand.name}
+            className="w-full h-full object-contain"
+            style={{ filter: selected ? "brightness(0) invert(1)" : "none" }}
+          />
+        ) : (
+          <div
+            className={[
+              "w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold",
+              selected ? "bg-white/20 text-white" : "bg-[#0F4C81]/10 text-[#0F4C81]",
+            ].join(" ")}
+          >
+            {brand.name.charAt(0)}
+          </div>
+        )}
       </div>
 
       <p
