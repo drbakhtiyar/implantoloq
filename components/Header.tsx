@@ -32,6 +32,7 @@ export default function Header({ locale }: Props) {
   const mainLinks = [
     { href: `${basePath}`, label: t('home') },
     { href: `${basePath}/haqqimda`, label: t('haqqimda') },
+    { href: `${basePath}/kalkulyator`, label: t('kalkulyator') },
     { href: `${basePath}/qiymetler`, label: t('qiymetler') },
     { href: `${basePath}/sual-cavab`, label: t('sualCavab') },
     { href: `${basePath}/elaqe`, label: t('elaqe') },

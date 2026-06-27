@@ -1,0 +1,78 @@
+{
+  "currency": "AZN",
+  "currencySymbol": "₼",
+  "implants": [
+    {
+      "id": "evidence-blt",
+      "name": "Evidence BLT",
+      "country": "Almaniya",
+      "tag": "Economy",
+      "pricePerUnit": 600
+    },
+    {
+      "id": "neobiotech",
+      "name": "Neobiotech",
+      "country": "Cənubi Koreya",
+      "tag": "Economy",
+      "pricePerUnit": 400
+    },
+    {
+      "id": "megagen",
+      "name": "Megagen",
+      "country": "Cənubi Koreya",
+      "tag": "Standard",
+      "pricePerUnit": 800
+    },
+    {
+      "id": "bredent",
+      "name": "Bredent copaSky",
+      "country": "Almaniya",
+      "tag": "Standard",
+      "pricePerUnit": 1000
+    },
+    {
+      "id": "straumann",
+      "name": "Straumann",
+      "country": "İsveçrə",
+      "tag": "Premium",
+      "pricePerUnit": 1700
+    }
+  ],
+  "crowns": [
+    {
+      "id": "zirconia",
+      "name": "İmplant üstü qapaq (Zirkon/Keramika)",
+      "pricePerUnit": 465
+    },
+    {
+      "id": "temporary",
+      "name": "Müvəqqəti qapaq",
+      "pricePerUnit": 55
+    }
+  ],
+  "addons": {
+    "boneGraft": {
+      "enabled": false,
+      "pricePerUnit": 0,
+      "name": "Sümük transplantasiyası"
+    },
+    "sinusLift": {
+      "enabled": false,
+      "price": 0,
+      "name": "Sinus lift"
+    },
+    "xray": {
+      "enabled": true,
+      "price": 30,
+      "name": "Panoramik rentgen"
+    }
+  },
+  "discounts": [
+    { "minImplants": 3, "percentage": 5, "label": "3–4 implant — 5% endirim" },
+    { "minImplants": 5, "percentage": 7, "label": "5–8 implant — 7% endirim" },
+    { "minImplants": 9, "percentage": 10, "label": "9+ implant — 10% endirim" }
+  ],
+  "whatsapp": {
+    "number": "994105010107"
+  }
+}
