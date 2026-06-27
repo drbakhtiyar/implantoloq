@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       default: t('homeTitle'),
-      template: `%s | İmplantoloq.az`,
+      template: '%s',
     },
     description: t('homeDesc'),
     alternates: {
