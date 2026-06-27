@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# implantoloq.az
 
-## Getting Started
+Next.js (App Router) site for Dr. Bakhtiyar Aliyev's dental implant clinic. Locales: `az` (default), `en`, `ru`.
 
-First, run the development server:
+## Local development
 
 ```bash
+cp .env.example .env.local   # fill in optional WhatsApp keys if needed
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The root `/` redirects to `/az`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributing / shipping a change
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Branch off `main`.** Work on a feature branch — never commit directly to `main`.
 
-## Learn More
+2. **Develop and verify locally.**
+   ```bash
+   npm run dev        # hot-reload dev server
+   npm run lint       # must pass
+   npm run check:i18n # must pass — checks az/en/ru keys are in sync
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Add or update translations** in `messages/az.json`, `messages/en.json`, and `messages/ru.json` whenever you add user-visible text. The CI i18n check will fail if any locale is missing a key.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Open a pull request against `main`.** CI runs automatically:
+   - **Build** — ensures the production build succeeds.
+   - **Lint** — ESLint must be clean.
+   - **i18n parity** — all locale files must have identical key sets.
+   - **Smoke tests** — Playwright checks that the home page renders per locale and the calculator gate form works.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **Merge only after CI is green.** Merging to `main` triggers a Vercel production deploy.
 
-## Deploy on Vercel
+### Running smoke tests locally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build        # required — tests run against the production build
+npm run test:e2e     # starts the server and runs Playwright tests
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Environment variables
+
+See `.env.example` for all supported env vars and their purpose. Copy it to `.env.local` (gitignored) before running locally. No env vars are required for the app to start.

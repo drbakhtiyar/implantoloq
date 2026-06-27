@@ -15,17 +15,23 @@ export default function PriceCounter({ value, sym, className = "" }: Props) {
   const fromRef = useRef(value);
 
   useEffect(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    startRef.current = null;
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDisplayed(value);
-      return;
+      // Defer into a rAF so setState isn't called synchronously inside the effect.
+      rafRef.current = requestAnimationFrame(() => {
+        fromRef.current = value;
+        setDisplayed(value);
+      });
+      return () => {
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      };
     }
 
     const from = fromRef.current;
     const to = value;
     const duration = 400;
-
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    startRef.current = null;
 
     function tick(ts: number) {
       if (!startRef.current) startRef.current = ts;
