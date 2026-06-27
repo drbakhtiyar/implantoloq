@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { articles } from '@/lib/articles';
 
 const baseUrl = 'https://implantoloq.az';
 const locales = ['az', 'ru', 'en'];
@@ -11,6 +12,7 @@ const pages = [
   '/sedasiya-ile-implant',
   '/haqqimda',
   '/qiymetler',
+  '/meqaleler',
   '/sual-cavab',
   '/elaqe',
   '/randevu',
@@ -33,6 +35,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       });
     }
+  }
+
+  // Article pages (az locale only — content is Azerbaijani)
+  for (const article of articles) {
+    urls.push({
+      url: `${baseUrl}/az/meqaleler/${article.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
   }
 
   return urls;

@@ -175,6 +175,22 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
+      {/* SEO Intro */}
+      {locale === 'az' && (
+        <section className="py-10 bg-white border-b border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+              İmplantoloq.az diş implantasiyası sahəsində ixtisaslaşmış implantoloq tərəfindən
+              təqdim olunan məlumat və xidmətləri əhatə edir. Məqsədimiz hər bir pasiyentə fərdi
+              yanaşma göstərərək sağlam və estetik nəticə əldə etməkdir. Əgər siz Bakıda implantoloq
+              axtarırsınızsa, burada peşəkar yanaşma və etibarlı müalicə prosesi ilə tanış ola
+              bilərsiniz. Müasir texnologiyalar və təcrübəli implantoloq yanaşması sayəsində
+              uzunmüddətli və keyfiyyətli nəticə əldə etmək mümkündür.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Services */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">

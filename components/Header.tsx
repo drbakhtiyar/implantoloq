@@ -34,6 +34,7 @@ export default function Header({ locale }: Props) {
     { href: `${basePath}/haqqimda`, label: t('haqqimda') },
     { href: `${basePath}/kalkulyator`, label: t('kalkulyator') },
     { href: `${basePath}/qiymetler`, label: t('qiymetler') },
+    { href: `${basePath}/meqaleler`, label: t('meqaleler') },
     { href: `${basePath}/sual-cavab`, label: t('sualCavab') },
     { href: `${basePath}/elaqe`, label: t('elaqe') },
   ];
